@@ -5,49 +5,70 @@ namespace Restaurant
 {
     public class Menu
     {
-        public static string RestaurantName { get; set; }
-        public static List<MenuItem> MenuItems { get; set; }
-        public static DateTime LastUpdateDate { get; set; }
+        private static int nextMenuID = 1;
+        private int MenuId { get; set; }
+        public string RestaurantName { get; set; }
+        private List<MenuItem> MenuItems { get; set; }
+        private DateTime LastUpdateDate { get; set; }
 
 
         public Menu(string restaurantName)
         {
+            MenuId = nextMenuID++;
             RestaurantName = restaurantName;
             MenuItems = new List<MenuItem>();
             LastUpdateDate = DateTime.Now;
         }
 
-        public static void AddMenuItem (MenuItem item)
+        public void AddMenuItem (MenuItem item)
         {
             MenuItems.Add(item);
             LastUpdateDate = DateTime.Now;
         }
-        public static void RemoveMenuItem(MenuItem item)
+        public void RemoveMenuItem(MenuItem item)
         {
             MenuItems.Remove(item);
             LastUpdateDate = DateTime.Now;
         }
 
-        public static string GetLastUpdate(Menu menu)
+        public string GetLastUpdate()
         {
             return LastUpdateDate.ToString(); //ToLongDateString();
         }
 
-        public static void PrintMenu(Menu menu)
+        
+
+        public override String ToString()
         {
-            Console.WriteLine(RestaurantName + " Menu:\n");
+            string menuContents = RestaurantName + " Menu:\n";
             foreach (MenuItem item in MenuItems)
             {
-                PrintMenuItem(item);
+                menuContents += item + "\n";
             }
+            return menuContents;
+
         }
 
-        public static void PrintMenuItem(MenuItem item)
+        public override bool Equals(Object o)
         {
-            Console.WriteLine("Name: " + item.Name + "\nDescription: " +
-                              item.Description + "\nCategory: " +
-                              item.Category + "\nPrice: $" +
-                              item.Price.ToString() + "\n");
+            if (o == this)
+                return true;
+
+            if (o == null)
+                return false;
+
+            if (o.GetType() != GetType())
+                return false;
+
+            Menu menuObj = o as Menu;
+            return MenuId == menuObj.MenuId;
         }
+
+        public override int GetHashCode()
+        {
+            return MenuId;
+        }
+
+
     }
 }

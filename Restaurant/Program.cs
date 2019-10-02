@@ -11,19 +11,20 @@ namespace Restaurant
             MenuItem Spaghetti = new MenuItem("Spaghetti", "A delicious pasta", "Pasta", 5.50, false);
             Menu ItalianRestaurant = new Menu("Italian Restaurant");
 
-            Console.WriteLine(Menu.GetLastUpdate(ItalianRestaurant));
+            Console.WriteLine(ItalianRestaurant.GetLastUpdate());
 
-            Console.WriteLine(MenuItem.IsNewItem(Spaghetti));
-            Console.WriteLine(MenuItem.IsSameItem(MozarellaPizza, Spaghetti));
+            Console.WriteLine(Spaghetti.IsNewItem());
+            Console.WriteLine(MozarellaPizza.Equals(Spaghetti));
+            Console.WriteLine(MozarellaPizza);
 
-            Menu.AddMenuItem(MozarellaPizza);
-            Menu.AddMenuItem(Spaghetti);
-            Menu.PrintMenu(ItalianRestaurant);
-            Menu.RemoveMenuItem(Spaghetti);
-            Menu.PrintMenu(ItalianRestaurant);
-            Console.WriteLine(Menu.GetLastUpdate(ItalianRestaurant));
+            ItalianRestaurant.AddMenuItem(MozarellaPizza);
+            ItalianRestaurant.AddMenuItem(Spaghetti);
+            Console.WriteLine(ItalianRestaurant);
+            ItalianRestaurant.RemoveMenuItem(Spaghetti);
+            Console.WriteLine(ItalianRestaurant);
+            Console.WriteLine(ItalianRestaurant.GetLastUpdate());
 
-
+ 
         }
     }
 }

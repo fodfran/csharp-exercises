@@ -4,7 +4,7 @@ namespace Restaurant
     public class MenuItem
     {
         private static int nextItemId = 1;
-        public int ItemId { get; set; }
+        private int ItemId { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public string Category { get; set; }
@@ -22,16 +22,44 @@ namespace Restaurant
             NewItem = newItem;
         }
 
-        public static bool IsNewItem(MenuItem item)
+        public bool IsNewItem()
         {
-            return item.NewItem;
+            return NewItem;
         }
 
-        public static bool IsSameItem(MenuItem item1, MenuItem item2)
+        
+
+        public override String ToString()
         {
-            if (item1.ItemId == item2.ItemId)
+            string newFood = "";
+            if (NewItem == true)
+            {
+                newFood = "\nNEW!";
+            }
+            return "\nName: " + Name + "\nDescription: " +
+                              Description + "\nCategory: " +
+                              Category + "\nPrice: $" +
+                              Price.ToString() + newFood;
+        }
+
+        public override bool Equals(Object o)
+        {
+            if (o == this)
                 return true;
-            return false;
+
+            if (o == null)
+                return false;
+
+            if (o.GetType() != GetType())
+                return false;
+
+            MenuItem itemObj = o as MenuItem;
+            return ItemId == itemObj.ItemId;
+        }
+
+        public override int GetHashCode()
+        {
+            return ItemId;
         }
     }
 }
