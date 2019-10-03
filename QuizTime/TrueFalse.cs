@@ -1,21 +1,18 @@
 ﻿using System;
+using System.Collections.Generic;
+
 namespace QuizTime
 {
     public class TrueFalse : Question
     {
-        public string Answer { get; set; }
-        public string Option1 { get; set; } = "true";
-        public string Option2 { get; set; } = "false";
+        private static List<string> option = new List<string>() { "true", "false" };
+        private static string type = "True or False?";
 
-        public TrueFalse(string ques, string answer, string type = "True or False?")
-            : base(ques, type)
+        public string Answer { get; set; }
+
+        public TrueFalse(string ques, string answer) : base(ques, option, type)
         {
             Answer = answer;
-        }
-
-        public string GetOptions()
-        {
-            return "\n" + Option1 + "\n" + Option2 + "\n";
         }
 
         public string GetAnswer()

@@ -38,6 +38,13 @@ namespace QuizTime
             TotalQuestions++;
         }
 
+        private void AskQuestion(Question q)
+        {
+            Console.WriteLine("\n" + q.GetQuizId().ToString() +
+                        ". " + q.GetQuestion() + "\n");
+            Console.WriteLine(q.GetOptions());
+            Console.WriteLine("Your Response: ");
+        }
 
         public void StartQuiz()
         {
@@ -47,9 +54,8 @@ namespace QuizTime
                 Console.WriteLine(MCQ[0].GetQType());
                 foreach (MultipleChoice q in MCQ)
                 {
-                    Console.WriteLine(q.GetQuestion());
-                    Console.WriteLine(q.GetOptions());
-                    Console.WriteLine("Your Response: ");
+                    AskQuestion(q);
+
                     string response = Console.ReadLine();
                     if (response == q.GetAnswer())
                         score++;
@@ -62,9 +68,8 @@ namespace QuizTime
                 Console.WriteLine(TFQ[0].GetQType());
                 foreach (TrueFalse q in TFQ)
                 {
-                    Console.WriteLine(q.GetQuestion());
-                    Console.WriteLine(q.GetOptions());
-                    Console.WriteLine("Your Response: ");
+                    AskQuestion(q);
+
                     string response = Console.ReadLine();
                     if (response == q.GetAnswer())
                         score++;
@@ -78,9 +83,8 @@ namespace QuizTime
                 foreach (CheckBox q in CBQ)
                 {
                     int check = 0;
-                    Console.WriteLine(q.GetQuestion());
-                    Console.WriteLine(q.GetOptions());
-                    Console.WriteLine("Your Response: ");
+                    AskQuestion(q);
+
                     List<string> responses = new List<string>();
                     string response = "";
                     do

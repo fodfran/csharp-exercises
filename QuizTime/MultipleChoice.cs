@@ -5,26 +5,17 @@ namespace QuizTime
 {
     public class MultipleChoice : Question
     {
+        private static string type = "Multiple Choice (Choose 1):";
+
         public string Answer { get; set; }
-        public List<string> Options { get; set; }
         
 
-        public MultipleChoice(string ques, string answer, List<string> options,
-            string type = "Multiple Choice (Choose 1):") : base(ques, type)
+        public MultipleChoice(string ques, string answer, List<string> options)
+            : base(ques, options, type)
         {
             Answer = answer;
-            Options = options;
         }
 
-        public string GetOptions()
-        {
-            string allOptions = "";
-            foreach (string opt in Options)
-            {
-                allOptions += opt + "\n";
-            }
-            return allOptions;
-        }
 
         public string GetAnswer()
         {

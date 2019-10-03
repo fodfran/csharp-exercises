@@ -5,24 +5,15 @@ namespace QuizTime
 {
     public class CheckBox : Question
     {
-        public List<string> Answers { get; set; }
-        public List<string> Options { get; set; }
+        private static string type = "Check Box (Choose 1 or more)";
 
-        public CheckBox(string ques, List<string> answers, List<string> options,
-            string type = "Check Box (Choose 1 or more)") : base(ques, type)
+        public List<string> Answers { get; set; }
+
+        public CheckBox(string ques, List<string> answers, List<string> options)
+            : base(ques, options, type)
+
         {
             Answers = answers;
-            Options = options;
-        }
-
-        public string GetOptions()
-        {
-            string allOptions = "";
-            foreach (string opt in Options)
-            {
-                allOptions += opt + "\n";
-            }
-            return allOptions;
         }
 
         public List<string> GetAnswers()
