@@ -47,6 +47,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Restaurant", "Restaurant\Re
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Polygons", "Polygons\Polygons.csproj", "{C03C408B-A02E-4474-A94A-097E0D891BA7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuizTime", "QuizTime\QuizTime.csproj", "{4083EB90-49E4-4577-A531-5E9C4121690A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -141,6 +143,10 @@ Global
 		{C03C408B-A02E-4474-A94A-097E0D891BA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C03C408B-A02E-4474-A94A-097E0D891BA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C03C408B-A02E-4474-A94A-097E0D891BA7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4083EB90-49E4-4577-A531-5E9C4121690A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4083EB90-49E4-4577-A531-5E9C4121690A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4083EB90-49E4-4577-A531-5E9C4121690A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4083EB90-49E4-4577-A531-5E9C4121690A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

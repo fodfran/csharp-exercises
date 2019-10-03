@@ -1,7 +1,7 @@
 ﻿using System;
 namespace Polygons
 {
-    public class Shape
+    public class Shape : AbstractEntity
     {
 
         public string Color { get; set; }
