@@ -9,12 +9,13 @@ namespace QuizTime
         public List<string> Options { get; set; }
         public string Type { get; set; }
 
+       
         public Question(string ques, List<string> options, string type)
         {
             Ques = ques;
             Options = options;
             Type = type;
-        }
+        } 
 
         public string GetQuestion()
         {
