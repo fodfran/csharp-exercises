@@ -6,19 +6,25 @@ namespace AreaCircleCalc
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Enter a radius: ");
-            string radiusInput = Console.ReadLine();
-            double radius = double.Parse(radiusInput);
+            
+            string radiusInput;
+            double radius;
 
-            while (radius < 0)
+            do
             {
-                Console.WriteLine("Invalid radius");
+                
                 Console.WriteLine("Enter a radius: ");
                 radiusInput = Console.ReadLine();
                 radius = double.Parse(radiusInput);
-            }
-            
-            double area = Math.Pow(radius, 2) * Math.PI;
+                if (radius < 0)
+                {
+                    Console.WriteLine("Invalid radius");
+                }
+                
+            } while (radius < 0);
+
+
+                double area = Math.Pow(radius, 2) * Math.PI;
             Console.WriteLine("The area of a circle with " +
                 "a radius of " + radius.ToString() + " is: "
                 + area.ToString());
